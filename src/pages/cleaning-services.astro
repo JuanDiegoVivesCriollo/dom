@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const cleaningJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Cleaning Service",
+  "name": "End of Tenancy Cleaning Birmingham",
+  "description": "Professional end of tenancy cleaning and property cleaning services in Birmingham, West Midlands. Deep cleaning, Airbnb turnovers and waste clearance.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DOM Transsport UK Ltd",
+    "telephone": "+447737994071",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Birmingham",
+      "addressRegion": "West Midlands",
+      "addressCountry": "GB"
+    }
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Birmingham" },
+    { "@type": "AdministrativeArea", "name": "West Midlands" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Cleaning Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "End of Tenancy Cleaning" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deep Cleaning" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Property Cleaning West Midlands" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airbnb Turnover Cleaning" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Waste Clearance" } }
+    ]
+  }
+};
+
+const services = [
+  {
+    id: 'cleaning',
+    title: 'Cleaning & Property Services Division',
+    description: 'Professional cleaning and property support designed for landlords, estate agents, property managers and short-let businesses. Guaranteed quality results.',
+    features: ['End of Tenancy Cleaning', 'Airbnb & Short-Let Turnovers', 'Deep Cleaning', 'Kitchens, Bathrooms & Surfaces', 'Before & After Photo Reports'],
+    isHighlighted: true,
+    extra: 'Combined cleaning and transport packages available',
+    image: '/img/imgservices/cleaningservice1.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />`,
+  },
+  {
+    id: 'waste',
+    title: 'Waste & Clearance Services',
+    description: 'Licensed waste carrier providing responsible disposal services. House clearances, garden waste, builders waste, and eco-friendly disposal.',
+    features: ['Licensed Waste Carrier', 'Furniture & Household Waste', 'End-of-Tenancy Clear-Outs', 'Junk Removal After Jobs', 'Responsible Waste Handling'],
+    image: '/img/imgservices/cleaningservice2.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />`,
+  },
+];
+---
+
+<Layout 
+  title="End of Tenancy Cleaning Birmingham | Property Cleaning West Midlands | DOM Transsport UK" 
+  description="Professional end of tenancy cleaning in Birmingham and property cleaning across West Midlands. Deep cleaning, Airbnb turnovers, licensed waste clearance. DBS checked, fully insured. Free quotes available."
+  canonical="/cleaning-services"
+  jsonLd={cleaningJsonLd}
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden">
+    <div 
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('https://images.unsplash.com/photo-1527515673510-813c3bb87e5e?w=1920&q=80');"
+    >
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/90 to-[var(--bg-primary)]"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-block px-4 py-2 bg-[#22c55e]/10 text-[#22c55e] text-sm font-medium rounded-full mb-6 animate-fadeInUp">
+          Cleaning Division
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+          End of Tenancy Cleaning <span class="text-gradient">Birmingham & West Midlands</span>
+        </h1>
+        <p class="text-[var(--text-secondary)] text-lg md:text-xl leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
+          Professional property cleaning services for landlords, 
+          estate agents, and commercial clients. Deep cleaning, Airbnb turnovers and waste clearance throughout Birmingham and the West Midlands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section-padding bg-[var(--bg-primary)]">
+    <div class="container-custom">
+      {services.map((service, index) => (
+        <article 
+          id={service.id}
+          class={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-24 last:mb-0 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+        >
+          <!-- Image -->
+          <div class={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src={service.image} 
+                alt={service.title}
+                class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            {service.isHighlighted && (
+              <div class="absolute -top-4 left-6 px-4 py-2 bg-[#22c55e] text-white text-sm font-semibold rounded-full shadow-lg">
+                ✨ Property Division
+              </div>
+            )}
+            <div class={`absolute -bottom-4 ${index % 2 === 1 ? '-left-4' : '-right-4'} w-24 h-24 bg-[#22c55e]/20 rounded-2xl -z-10`}></div>
+          </div>
+          
+          <!-- Content -->
+          <div class={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-xl flex items-center justify-center bg-[var(--bg-accent)]">
+                <svg class="w-7 h-7 text-[#22c55e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
+              </div>
+              <span class="text-[#22c55e] text-sm font-medium uppercase tracking-wider">Property Service</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+              {service.title}
+            </h2>
+            
+            <p class="text-[var(--text-secondary)] text-lg leading-relaxed">
+              {service.description}
+            </p>
+            
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-3 text-[var(--text-secondary)]">
+                  <span class="w-2 h-2 bg-[#22c55e] rounded-full flex-shrink-0"></span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            {service.extra && (
+              <p class="text-[var(--text-muted)] text-sm italic border-l-2 border-[#22c55e] pl-4">
+                {service.extra}
+              </p>
+            )}
+            
+            <a href="/contact" class="btn-primary inline-flex">
+              Request Quote
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Combined Packages Section -->
+  <section class="section-padding bg-[var(--bg-secondary)]">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">Complete Property Solutions</h2>
+          <p class="text-[var(--text-secondary)] text-lg">
+            Combine services for a seamless property turnover experience.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div class="group p-8 bg-[var(--bg-card)] rounded-2xl border border-[var(--border)] hover:border-[#22c55e]/30 transition-all card-hover text-center">
+            <div class="w-16 h-16 bg-[#22c55e]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#22c55e]/20 transition-colors">
+              <svg class="w-8 h-8 text-[#22c55e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            </div>
+            <h3 class="text-[var(--text-primary)] font-bold text-xl mb-3">Clearance + Cleaning</h3>
+            <p class="text-[var(--text-secondary)] text-sm">Full property clearance followed by deep cleaning.</p>
+          </div>
+
+          <div class="group p-8 bg-[var(--bg-card)] rounded-2xl border border-[var(--border)] hover:border-[#22c55e]/30 transition-all card-hover text-center">
+            <div class="w-16 h-16 bg-[#22c55e]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#22c55e]/20 transition-colors">
+              <svg class="w-8 h-8 text-[#22c55e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="text-[var(--text-primary)] font-bold text-xl mb-3">Removals + Cleaning</h3>
+            <p class="text-[var(--text-secondary)] text-sm">Moving out? We handle the transport and the final clean.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

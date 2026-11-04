@@ -1,0 +1,62 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# Migration: local credentials, runtime data and generated files
+**/node_modules/
+**/vendor/
+**/.next*/
+**/dist/
+**/out/
+**/.cache/
+**/.local/
+**/.openai/
+**/backups/
+**/tmp/
+**/uploads/
+**/datos_usuario/
+**/entrega_privada/
+**/instalador/
+**/.env*
+!**/.env.example
+!**/.env.*.example
+!**/.env.local.example
+*.log
+*.sqlite*
+*.db
+*.db-*
+*.pem
+*.key
+*.pfx
+*.p12
+*.zip
+*.rar
+*.7z
+*.exe
+*.msi
+*.tsbuildinfo
+
+**/.codex-qa/
+**/.browser-profile/
+**/playwright-profile/

@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const transportJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Courier Service",
+  "name": "Courier Services Birmingham",
+  "description": "Professional courier services, same day courier delivery and removals service in Birmingham, West Midlands. Multi-drop, medical logistics and nationwide coverage.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "DOM Transsport UK Ltd",
+    "telephone": "+447737994071",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Birmingham",
+      "addressRegion": "West Midlands",
+      "addressCountry": "GB"
+    }
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Birmingham" },
+    { "@type": "AdministrativeArea", "name": "West Midlands" },
+    { "@type": "Country", "name": "United Kingdom" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Transport & Courier Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Same Day Courier Birmingham" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Courier Services Birmingham" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Removals Service Birmingham" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medical Logistics" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Multi-Drop Courier" } }
+    ]
+  }
+};
+
+const services = [
+  {
+    id: 'transport',
+    title: 'Transport & Logistics',
+    description: 'Professional transport solutions with our fleet of well-maintained vans. Dedicated van services for scheduled delivery rounds, same-day consignments, and nationwide routes.',
+    features: ['Dedicated Van Services', 'Scheduled Delivery Rounds', 'Same-Day & Time-Sensitive', 'Long-Distance & Nationwide', 'Professional Uniformed Drivers'],
+    extra: 'Fleet: LWB Vans & Luton Vans available',
+    image: '/img/imgservices/transportservice1.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />`,
+  },
+  {
+    id: 'medical',
+    title: 'Medical & Laboratory Logistics',
+    description: 'Reliable handling of sensitive and time-critical deliveries. Specialised transport for medical samples, pharmaceutical supplies, and laboratory equipment.',
+    features: ['GP Surgery Deliveries', 'Pharmacy Distribution', 'Laboratory Samples Transport', 'Confidential Document Deliveries', 'Structured Medical Logistics Routes'],
+    image: '/img/imgservices/transportservice2.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />`,
+  },
+  {
+    id: 'courier',
+    title: 'Multi-Drop Courier Operations',
+    description: 'Extensive experience supporting high-volume courier networks. Efficient multi-drop delivery service with experience from working with major carriers.',
+    features: ['Multi-Drop Parcel Routes', 'Structured Route Planning', 'Amazon/DHL/Proovia Experience', 'Efficient & Organised Operations', 'Proof of Delivery'],
+    image: '/img/imgservices/transportservice3.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`,
+  },
+  {
+    id: 'removals',
+    title: 'Removals & Transport Services',
+    description: 'Flexible removals solutions for residential and commercial needs. Two-man crews available for heavy items, full packing services, and careful handling.',
+    features: ['Residential & Commercial Removals', 'Furniture Transport', 'Local & Long-Distance Moves', 'Two-Man Crews Available', 'Packing & Unpacking'],
+    extra: 'Pricing based on: Distance, Weight, Quantity, Vehicle Size & Service Requirements',
+    image: '/img/imgservices/transportservice4.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`,
+  },
+];
+---
+
+<Layout 
+  title="Courier Services Birmingham | Same Day Courier & Removals Service | DOM Transsport UK" 
+  description="Reliable courier services in Birmingham, same day courier delivery and professional removals service across Birmingham and West Midlands. Multi-drop, medical logistics, DBS checked drivers. Fully insured."
+  canonical="/transport-services"
+  jsonLd={transportJsonLd}
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden">
+    <div 
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&q=80');"
+    >
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/90 to-[var(--bg-primary)]"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="inline-block px-4 py-2 bg-[#22c55e]/10 text-[#22c55e] text-sm font-medium rounded-full mb-6 animate-fadeInUp">
+          Transport & Logistics
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+          Courier Services & Removals <span class="text-gradient">Birmingham</span>
+        </h1>
+        <p class="text-[var(--text-secondary)] text-lg md:text-xl leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
+          Same day courier delivery, multi-drop logistics, medical transport and professional removals service across Birmingham and the West Midlands. DBS checked drivers, fully insured fleet.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section-padding bg-[var(--bg-primary)]">
+    <div class="container-custom">
+      {services.map((service, index) => (
+        <article 
+          id={service.id}
+          class={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-24 last:mb-0 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+        >
+          <!-- Image -->
+          <div class={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src={service.image} 
+                alt={service.title}
+                class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class={`absolute -bottom-4 ${index % 2 === 1 ? '-left-4' : '-right-4'} w-24 h-24 bg-[#22c55e]/20 rounded-2xl -z-10`}></div>
+          </div>
+          
+          <!-- Content -->
+          <div class={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-xl flex items-center justify-center bg-[var(--bg-accent)]">
+                <svg class="w-7 h-7 text-[#22c55e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
+              </div>
+              <span class="text-[#22c55e] text-sm font-medium uppercase tracking-wider">Transport Service</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)]">
+              {service.title}
+            </h2>
+            
+            <p class="text-[var(--text-secondary)] text-lg leading-relaxed">
+              {service.description}
+            </p>
+            
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-3 text-[var(--text-secondary)]">
+                  <span class="w-2 h-2 bg-[#22c55e] rounded-full flex-shrink-0"></span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            {service.extra && (
+              <p class="text-[var(--text-muted)] text-sm italic border-l-2 border-[#22c55e] pl-4">
+                {service.extra}
+              </p>
+            )}
+            
+            <a href="/contact" class="btn-primary inline-flex">
+              Request Quote
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-[var(--bg-secondary)]">
+    <div class="container-custom text-center">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">Ready to Move?</h2>
+        <p class="text-[var(--text-secondary)] text-lg mb-8">
+          Contact our team today to discuss your transport and logistics requirements.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact" class="btn-primary">
+            Get a Quote
+          </a>
+          <a href="tel:+447424399563" class="btn-secondary">
+            Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

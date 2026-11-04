@@ -1,0 +1,198 @@
+---
+import ThemeToggle from './ThemeToggle';
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/transport-services', label: 'Transport' },
+  { href: '/cleaning-services', label: 'Cleaning' },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact Us' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+  <div id="header-bg" class="bg-[var(--bg-primary)]/95 backdrop-blur-md border-b border-[var(--border)] transition-colors duration-300 relative z-50">
+    <div class="container-custom">
+      <nav class="flex items-center justify-between h-20 md:h-40 relative">
+        
+        <!-- Left Side -->
+        <div class="flex items-center gap-4">
+          <!-- Mobile Theme Toggle (Visible only on mobile) -->
+          <div class="md:hidden relative z-[100] pointer-events-auto cursor-pointer">
+            <ThemeToggle client:only="react" />
+          </div>
+
+          <!-- Desktop Navigation Links -->
+          <div class="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a 
+                href={link.href} 
+                class={`text-sm font-medium transition-colors relative group/link ${
+                  currentPath === link.href 
+                    ? 'text-[var(--accent)]' 
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                {link.label}
+                <span class={`absolute -bottom-1 left-0 w-full h-0.5 bg-[var(--accent)] transform origin-left transition-transform duration-300 ${
+                  currentPath === link.href ? 'scale-x-100' : 'scale-x-0 group-hover/link:scale-x-100'
+                }`}></span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Center - Logo -->
+        <a href="/" class="absolute left-1/2 transform -translate-x-1/2 flex items-center group z-10 p-2">
+          <!-- Light Mode Logo -->
+          <img 
+            src="/img/logodom.webp" 
+            alt="DOM Transport UK Ltd" 
+            class="h-16 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg dark:hidden"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" 
+          />
+          <!-- Dark Mode Logo -->
+          <img 
+            src="/img/logodowmodooscuro.webp" 
+            alt="DOM Transport UK Ltd" 
+            class="h-16 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg hidden dark:block"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" 
+          />
+          <!-- Fallback -->
+          <div class="hidden w-12 h-12 md:w-20 md:h-20 bg-[var(--accent)] rounded-lg flex items-center justify-center shadow-lg shadow-[var(--accent)]/20">
+            <span class="text-white font-bold text-xl md:text-3xl">D</span>
+          </div>
+        </a>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-3">
+          <!-- Desktop Theme Toggle -->
+          <div class="hidden md:block">
+            <ThemeToggle client:load />
+          </div>
+          
+          <!-- CTA Button (Hidden on very small screens if needed, but keeping for now) -->
+          <a 
+            href="/contact" 
+            class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-semibold rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Get a Quote
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button 
+            id="mobile-menu-btn"
+            class="md:hidden p-2 text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors relative z-50"
+            aria-label="Toggle menu"
+          >
+            <div class="space-y-1.5 ">
+              <span class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center" id="hamburger-top"></span>
+              <span class="block w-6 h-0.5 bg-current transition-opacity duration-300" id="hamburger-middle"></span>
+              <span class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center" id="hamburger-bottom"></span>
+            </div>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Premium Mobile Menu Overlay -->
+  <div 
+    id="mobile-menu" 
+    class="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a1628]/95 backdrop-blur-xl transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center transition-colors"
+  >
+    <!-- Background Gradient Decoration -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-[var(--accent)]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <nav class="relative z-10 flex flex-col items-center gap-8 w-full max-w-sm px-6">
+      {navLinks.map((link, index) => (
+        <a 
+          href={link.href} 
+          class="mobile-link text-2xl font-bold text-gray-900 dark:text-gray-300 hover:text-[var(--accent)] dark:hover:text-[var(--accent)] transition-all duration-300 transform translate-y-4 opacity-0"
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          {link.label}
+        </a>
+      ))}
+      
+      <div class="w-16 h-1 bg-[var(--accent)]/30 rounded-full my-4"></div>
+
+      <a 
+        href="/contact" 
+        class="mobile-link w-full py-4 bg-[var(--accent)] text-white text-lg font-bold rounded-xl text-center shadow-lg shadow-[var(--accent)]/20 transform translate-y-4 opacity-0 transition-all active:scale-95"
+        style={`transition-delay: ${navLinks.length * 100}ms`}
+      >
+        Get a Free Quote
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const headerBg = document.getElementById('header-bg');
+    const topBar = document.getElementById('hamburger-top');
+    const middleBar = document.getElementById('hamburger-middle');
+    const bottomBar = document.getElementById('hamburger-bottom');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      
+      // Toggle Menu Visibility
+      if (isMenuOpen) {
+        mobileMenu?.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        
+        // Make header background transparent to blend with overlay
+        headerBg?.classList.remove('bg-[var(--bg-primary)]/95', 'backdrop-blur-md', 'border-b');
+        headerBg?.classList.add('bg-transparent', 'border-transparent');
+
+        // Animate Links
+        setTimeout(() => {
+          mobileLinks.forEach(link => {
+            link.classList.remove('translate-y-4', 'opacity-0');
+          });
+        }, 300);
+
+        // Animate Hamburger to X
+        topBar?.classList.add('rotate-45', 'translate-y-2');
+        middleBar?.classList.add('opacity-0');
+        bottomBar?.classList.add('-rotate-45', '-translate-y-2');
+        
+      } else {
+        mobileMenu?.classList.add('translate-x-full');
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Restore header background
+        headerBg?.classList.add('bg-[var(--bg-primary)]/95', 'backdrop-blur-md', 'border-b');
+        headerBg?.classList.remove('bg-transparent', 'border-transparent');
+
+        // Reset Links
+        mobileLinks.forEach(link => {
+          link.classList.add('translate-y-4', 'opacity-0');
+        });
+
+        // Animate X back to Hamburger
+        topBar?.classList.remove('rotate-45', 'translate-y-2');
+        middleBar?.classList.remove('opacity-0');
+        bottomBar?.classList.remove('-rotate-45', '-translate-y-2');
+      }
+    }
+
+    menuBtn?.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) toggleMenu();
+      });
+    });
+  });
+</script>

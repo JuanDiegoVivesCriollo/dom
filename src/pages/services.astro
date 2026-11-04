@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    id: 'transport',
+    title: 'Transport & Logistics',
+    description: 'Professional transport solutions with our fleet of well-maintained vans. Dedicated van services for scheduled delivery rounds, same-day consignments, and nationwide routes.',
+    features: ['Dedicated Van Services', 'Scheduled Delivery Rounds', 'Same-Day & Time-Sensitive', 'Long-Distance & Nationwide', 'Professional Uniformed Drivers'],
+    extra: 'Fleet: LWB Vans & Luton Vans available',
+    image: '/img/imgservices/transportservice1.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />`,
+  },
+  {
+    id: 'medical',
+    title: 'Medical & Laboratory Logistics',
+    description: 'Reliable handling of sensitive and time-critical deliveries. Specialised transport for medical samples, pharmaceutical supplies, and laboratory equipment.',
+    features: ['GP Surgery Deliveries', 'Pharmacy Distribution', 'Laboratory Samples Transport', 'Confidential Document Deliveries', 'Structured Medical Logistics Routes'],
+    image: '/img/imgservices/transportservice2.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />`,
+  },
+  {
+    id: 'courier',
+    title: 'Multi-Drop Courier Operations',
+    description: 'Extensive experience supporting high-volume courier networks. Efficient multi-drop delivery service with experience from working with major carriers.',
+    features: ['Multi-Drop Parcel Routes', 'Structured Route Planning', 'Amazon/DHL/Proovia Experience', 'Efficient & Organised Operations', 'Proof of Delivery'],
+    image: '/img/imgservices/transportservice3.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`,
+  },
+  {
+    id: 'removals',
+    title: 'Removals & Transport Services',
+    description: 'Flexible removals solutions for residential and commercial needs. Two-man crews available for heavy items, full packing services, and careful handling.',
+    features: ['Residential & Commercial Removals', 'Furniture Transport', 'Local & Long-Distance Moves', 'Two-Man Crews Available', 'Packing & Unpacking'],
+    extra: 'Pricing based on: Distance, Weight, Quantity, Vehicle Size & Service Requirements',
+    image: '/img/imgservices/transportservice4.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`,
+  },
+  {
+    id: 'cleaning',
+    title: 'Cleaning & Property Services Division',
+    description: 'Professional cleaning and property support designed for landlords, estate agents, property managers and short-let businesses. Guaranteed quality results.',
+    features: ['End of Tenancy Cleaning', 'Airbnb & Short-Let Turnovers', 'Deep Cleaning', 'Kitchens, Bathrooms & Surfaces', 'Before & After Photo Reports'],
+    isHighlighted: true,
+    extra: 'Combined cleaning and transport packages available',
+    image: '/img/imgservices/cleaningservice1.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />`,
+  },
+  {
+    id: 'waste',
+    title: 'Waste & Clearance Services',
+    description: 'Licensed waste carrier providing responsible disposal services. House clearances, garden waste, builders waste, and eco-friendly disposal.',
+    features: ['Licensed Waste Carrier', 'Furniture & Household Waste', 'End-of-Tenancy Clear-Outs', 'Junk Removal After Jobs', 'Responsible Waste Handling'],
+    image: '/img/imgservices/cleaningservice2.webp',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />`,
+  },
+];
+---
+
+<Layout 
+  title="Our Services | Courier, Removals & Cleaning Services Birmingham | DOM Transsport UK" 
+  description="Same day courier Birmingham, removals service Birmingham, end of tenancy cleaning and property cleaning West Midlands. Professional transport, logistics and cleaning services. Fully insured."
+  canonical="/services"
+>
+  <!-- Hero Section with Background -->
+  <section class="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden">
+    <div 
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1920&q=80');"
+    >
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/95 via-[var(--bg-primary)]/90 to-[var(--bg-primary)]"></div>
+    </div>
+    
+    <div class="container-custom relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="badge mb-6 animate-fadeInUp">
+          Our Services
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-theme-primary mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+          Courier, Removals & Cleaning <span class="text-gradient">Services Birmingham</span>
+        </h1>
+        <p class="text-theme-secondary text-lg md:text-xl leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
+          Same day courier, multi-drop logistics, professional removals and end of tenancy cleaning across Birmingham and the West Midlands. Fully insured, DBS checked teams.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute top-1/4 left-10 w-20 h-20 bg-[var(--accent)]/10 rounded-full blur-xl animate-float"></div>
+    <div class="absolute bottom-1/4 right-10 w-32 h-32 bg-[var(--accent)]/5 rounded-full blur-2xl animate-float" style="animation-delay: 1s;"></div>
+  </section>
+
+  <!-- Services Grid with Images -->
+  <section class="section-padding section-primary">
+    <div class="container-custom">
+      {services.map((service, index) => (
+        <article 
+          id={service.id}
+          class={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-24 last:mb-0 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+        >
+          <!-- Image -->
+          <div class={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src={service.image} 
+                alt={service.title}
+                class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              {/* Overlay gradient */}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            {/* Badge for highlighted service */}
+            {service.isHighlighted && (
+              <div class="absolute -top-4 left-6 px-4 py-2 bg-[var(--accent)] text-white text-sm font-semibold rounded-full shadow-lg">
+                ✨ Property Division
+              </div>
+            )}
+            {/* Decorative element */}
+            <div class={`absolute -bottom-4 ${index % 2 === 1 ? '-left-4' : '-right-4'} w-24 h-24 bg-[var(--accent)]/20 rounded-2xl -z-10`}></div>
+          </div>
+          
+          <!-- Content -->
+          <div class={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <div class="flex items-center gap-4">
+              <div class={`w-14 h-14 rounded-xl flex items-center justify-center ${service.isHighlighted ? 'bg-[var(--accent)]/20' : 'icon-box'}`}>
+                <svg class="w-7 h-7 text-theme-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={service.icon} />
+              </div>
+              <span class="text-theme-accent text-sm font-medium uppercase tracking-wider">Service {String(index + 1).padStart(2, '0')}</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-bold text-theme-primary">
+              {service.title}
+            </h2>
+            
+            <p class="text-theme-secondary text-lg leading-relaxed">
+              {service.description}
+            </p>
+            
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-3 text-theme-secondary">
+                  <span class="w-2 h-2 bg-[var(--accent)] rounded-full flex-shrink-0"></span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            {service.extra && (
+              <p class="text-theme-muted text-sm italic border-l-2 border-[var(--accent)] pl-4">
+                {service.extra}
+              </p>
+            )}
+            
+            <a href="/contact" class="btn-primary inline-flex">
+              Get a Quote
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Combined Packages Section -->
+  <section class="section-padding section-secondary">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-theme-primary mb-4">Combined Service Packages</h2>
+          <p class="text-theme-secondary text-lg">
+            Tailored packages combining multiple services for maximum convenience and value.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="group service-card card-hover text-center">
+            <div class="w-16 h-16 bg-[var(--accent)]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[var(--accent)]/20 transition-colors">
+              <svg class="w-8 h-8 text-theme-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+              </svg>
+            </div>
+            <h3 class="text-theme-primary font-bold text-xl mb-3">Transport + Cleaning</h3>
+            <p class="text-theme-secondary text-sm">Complete move-in ready solutions with delivery and professional clean.</p>
+          </div>
+
+          <div class="group service-card card-hover text-center">
+            <div class="w-16 h-16 bg-[var(--accent)]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[var(--accent)]/20 transition-colors">
+              <svg class="w-8 h-8 text-theme-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="text-theme-primary font-bold text-xl mb-3">Removals + Clearance</h3>
+            <p class="text-theme-secondary text-sm">Move out with full waste disposal and property clearance.</p>
+          </div>
+
+          <div class="group service-card card-hover text-center">
+            <div class="w-16 h-16 bg-[var(--accent)]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[var(--accent)]/20 transition-colors">
+              <svg class="w-8 h-8 text-theme-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="text-theme-primary font-bold text-xl mb-3">Logistics + Property</h3>
+            <p class="text-theme-secondary text-sm">Full property management support for landlords and agents.</p>
+          </div>
+        </div>
+
+        <p class="text-center text-theme-muted text-sm mt-10">
+          All packages customised based on size, distance, quantity and operational requirements.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section-padding section-primary relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1920&q=50')] bg-cover bg-center opacity-5"></div>
+    <div class="container-custom relative z-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <p class="text-4xl md:text-5xl font-bold text-theme-accent mb-2">10+</p>
+          <p class="text-theme-secondary">Years Experience</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl md:text-5xl font-bold text-theme-accent mb-2">1000+</p>
+          <p class="text-theme-secondary">Successful Deliveries</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl md:text-5xl font-bold text-theme-accent mb-2">100%</p>
+          <p class="text-theme-secondary">Insured Operations</p>
+        </div>
+        <div class="text-center">
+          <p class="text-4xl md:text-5xl font-bold text-theme-accent mb-2">7</p>
+          <p class="text-theme-secondary">Days a Week</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding section-secondary">
+    <div class="container-custom text-center">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-theme-primary mb-4">Need a Custom Service?</h2>
+        <p class="text-theme-secondary text-lg mb-8">
+          Can't find exactly what you need? Contact us to discuss your specific requirements.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/contact" class="btn-primary">
+            Request a Quote
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="https://wa.me/447424399563" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebe5a] text-white font-semibold rounded-lg transition-all">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactPage from '../components/ContactPage';
+---
+
+<Layout 
+  title="Contact Us | Free Quote for Cleaning & Courier Services Birmingham | DOM Transsport UK" 
+  description="Get a free quote for end of tenancy cleaning Birmingham, same day courier Birmingham, removals service or property cleaning West Midlands. Call 07737 994071 or request online. Fast response guaranteed."
+  canonical="/contact"
+>
+  <ContactPage client:load />
+</Layout>
+
+<style>
+  /* Custom scrollbar styling for the contact page */
+  :global(.contact-scroll::-webkit-scrollbar) {
+    width: 6px;
+  }
+  
+  :global(.contact-scroll::-webkit-scrollbar-track) {
+    background: var(--bg-secondary);
+    border-radius: 3px;
+  }
+  
+  :global(.contact-scroll::-webkit-scrollbar-thumb) {
+    background: var(--accent);
+    border-radius: 3px;
+  }
+</style>

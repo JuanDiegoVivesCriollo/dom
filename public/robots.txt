@@ -1,0 +1,8 @@
+# DOM Transsport UK Ltd - robots.txt
+# https://domtranssportuk.co.uk
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://domtranssportuk.co.uk/sitemap-index.xml

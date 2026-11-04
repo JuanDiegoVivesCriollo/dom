@@ -1,0 +1,180 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  jsonLd?: object;
+}
+
+const siteUrl = 'https://domtranssportuk.co.uk';
+const defaultDescription = 'DOM Transsport UK Ltd — Professional end of tenancy cleaning, courier services, removals and property cleaning in Birmingham & West Midlands. DBS checked, fully insured. Same day service available.';
+
+const { 
+  title, 
+  description = defaultDescription,
+  canonical,
+  ogImage = '/img/logodom.webp',
+  jsonLd,
+} = Astro.props;
+
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+---
+
+<!doctype html>
+<html lang="en-GB" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="DOM Transsport UK Ltd" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="GB-WMD" />
+    <meta name="geo.placename" content="Birmingham" />
+    <meta name="geo.position" content="52.4862;-1.8904" />
+    <meta name="ICBM" content="52.4862, -1.8904" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="DOM Transsport UK Ltd - Professional Transport & Cleaning Services" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="DOM Transsport UK Ltd" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0d1b2a" />
+    <meta name="msapplication-TileColor" content="#0d1b2a" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <ViewTransitions />
+    
+    <!-- Default Organisation Schema -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd || {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "DOM Transsport UK Ltd",
+      "url": siteUrl,
+      "logo": `${siteUrl}/img/logodom.webp`,
+      "image": `${siteUrl}/img/logodom.webp`,
+      "description": defaultDescription,
+      "telephone": ["+447737994071", "+447878692146"],
+      "email": "domtranssportuk@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Birmingham",
+        "addressRegion": "West Midlands",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.4862,
+        "longitude": -1.8904
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Birmingham" },
+        { "@type": "AdministrativeArea", "name": "West Midlands" },
+        { "@type": "Country", "name": "United Kingdom" }
+      ],
+      "serviceType": [
+        "End of Tenancy Cleaning",
+        "Courier Services",
+        "Same Day Courier",
+        "Removals Service",
+        "Property Cleaning",
+        "Transport and Logistics",
+        "Waste Clearance"
+      ],
+      "priceRange": "££",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:00",
+        "closes": "21:00"
+      },
+      "sameAs": [
+        "https://wa.me/447737994071",
+        "https://facebook.com/domtranssportuk"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Transport, Cleaning & Removals Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "End of Tenancy Cleaning Birmingham" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Courier Services Birmingham" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Same Day Courier Birmingham" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Removals Service Birmingham" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Property Cleaning West Midlands" }
+          }
+        ]
+      }
+    })} />
+    
+    <!-- Theme initialization script to prevent flash -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] pt-20 md:pt-40">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
