@@ -4,20 +4,12 @@ import Layout from '../layouts/Layout.astro';
 const cleaningJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": "https://domtranssportuk.co.uk/cleaning-services/#service",
+  "url": "https://domtranssportuk.co.uk/cleaning-services/",
   "serviceType": "Cleaning Service",
   "name": "End of Tenancy Cleaning Birmingham",
   "description": "Professional end of tenancy cleaning and property cleaning services in Birmingham, West Midlands. Deep cleaning, Airbnb turnovers and waste clearance.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "DOM Transsport UK Ltd",
-    "telephone": "+447737994071",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Birmingham",
-      "addressRegion": "West Midlands",
-      "addressCountry": "GB"
-    }
-  },
+  "provider": { "@id": "https://domtranssportuk.co.uk/#business" },
   "areaServed": [
     { "@type": "City", "name": "Birmingham" },
     { "@type": "AdministrativeArea", "name": "West Midlands" }
@@ -58,8 +50,8 @@ const services = [
 ---
 
 <Layout 
-  title="End of Tenancy Cleaning Birmingham | Property Cleaning West Midlands | DOM Transsport UK" 
-  description="Professional end of tenancy cleaning in Birmingham and property cleaning across West Midlands. Deep cleaning, Airbnb turnovers, licensed waste clearance. DBS checked, fully insured. Free quotes available."
+  title="End of Tenancy & Deep Cleaning in Birmingham" 
+  description="End of tenancy, deep cleaning and Airbnb turnovers in Birmingham and the West Midlands. Property cleaning for landlords, agents and businesses. Get a quote."
   canonical="/cleaning-services"
   jsonLd={cleaningJsonLd}
 >
@@ -78,7 +70,7 @@ const services = [
           Cleaning Division
         </span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
-          End of Tenancy Cleaning <span class="text-gradient">Birmingham & West Midlands</span>
+          End of Tenancy & Deep Cleaning <span class="text-gradient">in Birmingham</span>
         </h1>
         <p class="text-[var(--text-secondary)] text-lg md:text-xl leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
           Professional property cleaning services for landlords, 
@@ -100,7 +92,8 @@ const services = [
           <div class={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
             <div class="relative overflow-hidden rounded-2xl shadow-2xl">
               <img 
-                src={service.image} 
+                src={service.image}
+                width="1200" height="900" decoding="async" 
                 alt={service.title}
                 class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"

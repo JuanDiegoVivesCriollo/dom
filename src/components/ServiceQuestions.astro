@@ -1,0 +1,30 @@
+---
+const questions = [
+  { question: 'Where do you provide courier, removals and cleaning services?', answer: 'DOM Transsport UK Ltd is based in Birmingham, West Midlands. We provide transport and property services across the West Midlands, with UK-wide courier and removals coverage. Share your location when requesting a quote so we can confirm availability.' },
+  { question: 'Can I request a same-day courier in Birmingham?', answer: 'Yes. We offer same-day and time-sensitive courier services, subject to availability. Send the collection and delivery postcodes, parcel dimensions, weight and required delivery time so we can confirm the route and provide a quote.' },
+  { question: 'Which property cleaning services can I book?', answer: 'Our cleaning services include end of tenancy cleaning, deep cleaning, office and commercial cleaning, and Airbnb or short-let turnovers. Tell us the property location, size, condition and preferred date to request a tailored quote.' },
+  { question: 'How is a removals quote calculated?', answer: 'Removals quotes depend on the distance, quantity and weight of items, vehicle size and service requirements. Include both postcodes, access details and any heavy or fragile items. Two-man crews and packing services are available.' },
+];
+---
+<section class="section-padding bg-[var(--bg-secondary)]" aria-labelledby="service-questions">
+  <div class="container-custom grid lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20">
+    <div>
+      <p class="text-sm uppercase tracking-widest text-[var(--accent)] mb-4">Locations & booking</p>
+      <h2 id="service-questions" class="text-3xl md:text-4xl mb-5">Courier, removals & cleaning: your questions</h2>
+      <p class="text-[var(--text-secondary)] mb-6">Birmingham-based services for homes, businesses, landlords and logistics networks.</p>
+      <a href="/contact/" class="text-[var(--accent)] underline underline-offset-4">Discuss your requirements</a>
+    </div>
+    <div>
+      {questions.map(({ question, answer }) => (
+        <details class="border-b border-[var(--border)] py-5">
+          <summary class="cursor-pointer font-semibold text-[var(--text-primary)] pr-4">{question}</summary>
+          <p class="text-[var(--text-secondary)] leading-relaxed pt-4">{answer}</p>
+        </details>
+      ))}
+      <div class="flex flex-wrap gap-x-6 gap-y-3 pt-6 text-sm text-[var(--accent)]">
+        <a href="/transport-services/">Courier & removals services →</a>
+        <a href="/cleaning-services/">Property cleaning services →</a>
+      </div>
+    </div>
+  </div>
+</section>

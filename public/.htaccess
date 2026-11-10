@@ -4,6 +4,10 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
+# Redirect explicit index.html requests to the canonical directory URL.
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+
 # ============================================
 # 1. Force HTTPS (HTTP → HTTPS redirect)
 # ============================================
@@ -84,4 +88,4 @@ Options -Indexes
 # ============================================
 # 7. Custom 404
 # ============================================
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html

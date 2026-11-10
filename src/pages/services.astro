@@ -24,7 +24,7 @@ const services = [
     title: 'Multi-Drop Courier Operations',
     description: 'Extensive experience supporting high-volume courier networks. Efficient multi-drop delivery service with experience from working with major carriers.',
     features: ['Multi-Drop Parcel Routes', 'Structured Route Planning', 'Amazon/DHL/Proovia Experience', 'Efficient & Organised Operations', 'Proof of Delivery'],
-    image: '/img/imgservices/transportservice3.webp',
+    image: '/img/imgservices/multi-drop-courier.webp',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`,
   },
   {
@@ -58,8 +58,8 @@ const services = [
 ---
 
 <Layout 
-  title="Our Services | Courier, Removals & Cleaning Services Birmingham | DOM Transsport UK" 
-  description="Same day courier Birmingham, removals service Birmingham, end of tenancy cleaning and property cleaning West Midlands. Professional transport, logistics and cleaning services. Fully insured."
+  title="Transport, Removals & Cleaning Services in Birmingham" 
+  description="Explore courier, medical logistics, removals, property cleaning and waste clearance in Birmingham and the West Midlands. Find the service you need."
   canonical="/services"
 >
   <!-- Hero Section with Background -->
@@ -77,7 +77,7 @@ const services = [
           Our Services
         </span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-theme-primary mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
-          Courier, Removals & Cleaning <span class="text-gradient">Services Birmingham</span>
+          Transport, Removals & Cleaning <span class="text-gradient">in Birmingham</span>
         </h1>
         <p class="text-theme-secondary text-lg md:text-xl leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
           Same day courier, multi-drop logistics, professional removals and end of tenancy cleaning across Birmingham and the West Midlands. Fully insured, DBS checked teams.
@@ -102,7 +102,8 @@ const services = [
           <div class={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
             <div class="relative overflow-hidden rounded-2xl shadow-2xl">
               <img 
-                src={service.image} 
+                src={service.image}
+                width="1200" height="900" decoding="async" 
                 alt={service.title}
                 class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"

@@ -9,14 +9,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://domtranssportuk.co.uk',
   outDir: './out',
-  trailingSlash: 'ignore',
+  trailingSlash: 'always',
   integrations: [
     react(),
-    sitemap({
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
-    }),
+    sitemap({ filter: (page) => !page.endsWith('/404/') }),
   ],
 
   vite: {

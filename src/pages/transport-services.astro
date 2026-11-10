@@ -4,20 +4,12 @@ import Layout from '../layouts/Layout.astro';
 const transportJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": "https://domtranssportuk.co.uk/transport-services/#service",
+  "url": "https://domtranssportuk.co.uk/transport-services/",
   "serviceType": "Courier Service",
   "name": "Courier Services Birmingham",
   "description": "Professional courier services, same day courier delivery and removals service in Birmingham, West Midlands. Multi-drop, medical logistics and nationwide coverage.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "DOM Transsport UK Ltd",
-    "telephone": "+447737994071",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Birmingham",
-      "addressRegion": "West Midlands",
-      "addressCountry": "GB"
-    }
-  },
+  "provider": { "@id": "https://domtranssportuk.co.uk/#business" },
   "areaServed": [
     { "@type": "City", "name": "Birmingham" },
     { "@type": "AdministrativeArea", "name": "West Midlands" },
@@ -59,7 +51,7 @@ const services = [
     title: 'Multi-Drop Courier Operations',
     description: 'Extensive experience supporting high-volume courier networks. Efficient multi-drop delivery service with experience from working with major carriers.',
     features: ['Multi-Drop Parcel Routes', 'Structured Route Planning', 'Amazon/DHL/Proovia Experience', 'Efficient & Organised Operations', 'Proof of Delivery'],
-    image: '/img/imgservices/transportservice3.webp',
+    image: '/img/imgservices/multi-drop-courier.webp',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />`,
   },
   {
@@ -75,8 +67,8 @@ const services = [
 ---
 
 <Layout 
-  title="Courier Services Birmingham | Same Day Courier & Removals Service | DOM Transsport UK" 
-  description="Reliable courier services in Birmingham, same day courier delivery and professional removals service across Birmingham and West Midlands. Multi-drop, medical logistics, DBS checked drivers. Fully insured."
+  title="Same-Day Courier & Removals in Birmingham" 
+  description="Same-day courier, multi-drop deliveries, medical logistics and home removals in Birmingham. West Midlands and UK-wide transport. Request a tailored quote."
   canonical="/transport-services"
   jsonLd={transportJsonLd}
 >
@@ -95,7 +87,7 @@ const services = [
           Transport & Logistics
         </span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
-          Courier Services & Removals <span class="text-gradient">Birmingham</span>
+          Same-Day Courier & Removals <span class="text-gradient">in Birmingham</span>
         </h1>
         <p class="text-[var(--text-secondary)] text-lg md:text-xl leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
           Same day courier delivery, multi-drop logistics, medical transport and professional removals service across Birmingham and the West Midlands. DBS checked drivers, fully insured fleet.
@@ -116,7 +108,8 @@ const services = [
           <div class={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
             <div class="relative overflow-hidden rounded-2xl shadow-2xl">
               <img 
-                src={service.image} 
+                src={service.image}
+                width="1200" height="900" decoding="async" 
                 alt={service.title}
                 class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"

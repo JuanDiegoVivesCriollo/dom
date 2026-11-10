@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ServiceQuestions from '../components/ServiceQuestions.astro';
 import Hero from '../components/Hero';
 import TrustBar from '../components/TrustBar';
 ---
 
 <Layout 
-  title="DOM Transsport UK | Courier Services, Removals & End of Tenancy Cleaning Birmingham" 
-  description="Professional courier services, same day courier, removals service and end of tenancy cleaning in Birmingham & West Midlands. Fully insured, DBS checked. Property cleaning across the UK. Call 07737 994071."
+  title="Courier, Removals & Cleaning in Birmingham" 
+  description="Courier, removals and cleaning services in Birmingham and the West Midlands. Same-day delivery, house moves and end of tenancy cleaning. Get a quote."
   canonical="/"
+  preloadHero
 >
   <!-- Hero Section -->
   <Hero client:load />
@@ -378,4 +380,5 @@ import TrustBar from '../components/TrustBar';
       </div>
     </div>
   </section>
+  <ServiceQuestions />
 </Layout>

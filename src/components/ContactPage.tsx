@@ -20,7 +20,6 @@ import {
   Truck,
   Star,
   ChevronDown,
-  ChevronUp,
   Stethoscope,
   Boxes,
   Home,
@@ -45,15 +44,6 @@ const serviceOptions = [
   { value: 'waste', label: 'Waste & Clearance', Icon: Recycle },
   { value: 'combined', label: 'Combined Package', Icon: ClipboardList },
   { value: 'other', label: 'Other', Icon: HelpCircle },
-];
-
-// Typewriter phrases for hero
-const typewriterPhrases = [
-  "Get Your Project Moving",
-  "Professional Transport",
-  "Reliable Removals",
-  "Expert Cleaning",
-  "UK-Wide Coverage",
 ];
 
 const contactMethods = [
@@ -100,7 +90,7 @@ const contactMethods = [
 const features = [
   { icon: Shield, text: 'Fully Insured & DBS Checked' },
   { icon: Clock, text: 'Same-Day Service Available' },
-  { icon: Star, text: '5-Star Rated Service' },
+  { icon: Star, text: 'Tailored Service Quotes' },
   { icon: Truck, text: 'UK-Wide Coverage' },
 ];
 
@@ -137,50 +127,10 @@ export default function ContactPage() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
   
-  // Typewriter state
-  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  
   const formRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isHeroInView = useInView(heroRef, { once: true });
-  
-  // Typewriter effect
-  useEffect(() => {
-    const currentPhrase = typewriterPhrases[currentPhraseIndex];
-    
-    if (isPaused) {
-      const pauseTimeout = setTimeout(() => {
-        setIsPaused(false);
-        setIsDeleting(true);
-      }, 2000);
-      return () => clearTimeout(pauseTimeout);
-    }
-    
-    if (!isDeleting && currentText === currentPhrase) {
-      setIsPaused(true);
-      return;
-    }
-    
-    if (isDeleting && currentText === '') {
-      setIsDeleting(false);
-      setCurrentPhraseIndex((prev) => (prev + 1) % typewriterPhrases.length);
-      return;
-    }
-    
-    const timeout = setTimeout(() => {
-      if (isDeleting) {
-        setCurrentText(currentPhrase.substring(0, currentText.length - 1));
-      } else {
-        setCurrentText(currentPhrase.substring(0, currentText.length + 1));
-      }
-    }, isDeleting ? 40 : 80);
-    
-    return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, isPaused, currentPhraseIndex]);
   
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -346,8 +296,8 @@ export default function ContactPage() {
         <div className="container-custom relative z-10 py-20 lg:py-32">
           <motion.div
             variants={containerVariants}
-            initial="hidden"
-            animate={isHeroInView ? 'visible' : 'hidden'}
+            initial={false}
+            animate="visible"
             className="max-w-4xl mx-auto text-center"
           >
             {/* Badge */}
@@ -364,38 +314,9 @@ export default function ContactPage() {
               </span>
             </motion.div>
 
-            {/* Heading with Typewriter Effect */}
+            {/* Direct service and location heading */}
             <motion.div variants={itemVariants} className="mb-6">
-              <h1 
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
-              >
-                <span 
-                  className="block mb-2"
-                  style={{
-                    color: 'white',
-                    textShadow: '0 2px 20px rgba(0,0,0,0.5), 0 4px 40px rgba(0,0,0,0.3)',
-                  }}
-                >
-                  Contact Us
-                </span>
-                <span 
-                  className="block min-h-[1.2em] relative"
-                  style={{ 
-                    background: 'linear-gradient(135deg, var(--accent), #e6c94d)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  {currentText}
-                  <motion.span
-                    animate={{ opacity: [1, 0] }}
-                    transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-                    className="inline-block w-[3px] h-[0.9em] ml-1 align-middle"
-                    style={{ background: 'var(--accent)' }}
-                  />
-                </span>
-              </h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight" style={{ color: "white" }}>Courier, Removals & Cleaning Quotes in Birmingham</h1>
             </motion.div>
 
             {/* Subtitle */}
@@ -585,6 +506,7 @@ export default function ContactPage() {
       {/* Main Form Section */}
       <section 
         ref={formRef}
+        id="quote"
         className="py-20 lg:py-32 relative overflow-hidden"
         style={{ background: 'var(--bg-primary)' }}
       >

@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname;
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
   <div id="header-bg" class="bg-[var(--bg-primary)]/95 backdrop-blur-md border-b border-[var(--border)] transition-colors duration-300 relative z-50">
     <div class="container-custom">
-      <nav class="flex items-center justify-between h-20 md:h-40 relative">
+      <nav class="flex items-center justify-between h-20 md:h-28 relative">
         
         <!-- Left Side -->
         <div class="flex items-center gap-4">
@@ -47,17 +47,17 @@ const currentPath = Astro.url.pathname;
         <!-- Center - Logo -->
         <a href="/" class="absolute left-1/2 transform -translate-x-1/2 flex items-center group z-10 p-2">
           <!-- Light Mode Logo -->
-          <img 
+          <img width="400" height="300" 
             src="/img/logodom.webp" 
             alt="DOM Transport UK Ltd" 
-            class="h-16 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg dark:hidden"
+            class="h-16 md:h-28 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg dark:hidden"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" 
           />
           <!-- Dark Mode Logo -->
-          <img 
+          <img width="400" height="300" 
             src="/img/logodowmodooscuro.webp" 
             alt="DOM Transport UK Ltd" 
-            class="h-16 md:h-40 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg hidden dark:block"
+            class="h-16 md:h-28 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow-lg hidden dark:block"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" 
           />
           <!-- Fallback -->
